@@ -15,7 +15,8 @@ public class SeleniumDemo {
 
         try {
             executeAlloSearch(alloUaPage, "Iphone");
-            alloUaPage.setPhonePosition(14);
+            alloUaPage.setPhonePosition(2);
+
         } finally {
             if (driver != null) {
                 driver.quit();
@@ -29,14 +30,11 @@ public class SeleniumDemo {
         alloUaPage.executeSearch();
         List<WebElement> searchHeaders = alloUaPage.getSearchHeaders();
 
-
         if (searchHeaders.isEmpty()) {
             System.out.println("Oooops, something went wrong >_<");
-
         } else {
-            String firstIphoneName = searchHeaders.get(2).getText();
-            System.out.println("Назва першого айфона: " + firstIphoneName);
-
+            String firstPhoneName = searchHeaders.get(0).getText();
+            System.out.println("Назва першого телефону: " + firstPhoneName);
         }
     }
 }

@@ -26,14 +26,11 @@ public class AlloUaPage {
     }
 
     public void loadPage() {
-
         driver.get("https://allo.ua/");
         driver.manage().window().maximize();
-
     }
 
     public void acceptCookies() {
-
         driver.findElements(By.tagName("button")).get(4).click();
     }
 
@@ -46,22 +43,21 @@ public class AlloUaPage {
     }
 
     public void setSearchInputText(String value) {
-
         driver.findElement(By.name("search")).sendKeys(value);
     }
 
     public void executeSearch() {
-
         driver.findElement(By.name("search")).sendKeys(Keys.ENTER);
     }
 
     public List<WebElement> getSearchHeaders() {
-        return new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath(("//div[@class='product-card']//a[@class='product-card__title']")), 0));
+        return new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//div[@class='product-card']//a[@class='product-card__title']"), 0));
     }
 
     public void setPhonePosition(int position) {
         if (position < 0) {
-            throw new IllegalArgumentException("Спробуй ще раз (порядковий номер не може бути меньше 0");
+            throw new IllegalArgumentException("Спробуй ще раз (порядковий номер не може бути меньше 0)");
         }
         List<WebElement> allPhones = getSearchHeaders();
         if (position >= allPhones.size()) {
@@ -72,18 +68,19 @@ public class AlloUaPage {
         Actions actions = new Actions(driver);
         actions.moveToElement(phoneElement).perform();
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", phoneElement);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", phoneElement);
+
+        System.out.println("Назва телефону на позиції " + position + ": " + phoneElement.getText());
 
         try {
-            WebElement skuElement = new WebDriverWait(driver, Duration.ofSeconds(5))
-                    .until(ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[@id='__layout']/div/div[1]/div[2]/div/div[2]/div[2]/div[1]/div/div[1]/span[2]")));
+            WebElement skuElement = phoneElement.findElement(By.xpath(".//*[@id=\"__layout\"]/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/span[2]"));
+
 
             System.out.println("Код товару: " + skuElement.getText());
+
         } catch (Exception e) {
             System.out.println("Код товару не знайдено для позиції " + position);
         }
     }
 }
-
 
