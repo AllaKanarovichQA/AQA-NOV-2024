@@ -15,7 +15,7 @@ public class SeleniumDemo {
 
         try {
             executeAlloSearch(alloUaPage, "Iphone");
-            alloUaPage.setPhonePosition(2);
+            alloUaPage.setPhonePosition(4);
 
         } finally {
             if (driver != null) {

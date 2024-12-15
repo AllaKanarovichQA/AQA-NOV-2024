@@ -1,5 +1,3 @@
-// add method which checks goods id on position X
-// if 0 <= X <= goods_amount -> scroll to item, then print goods id for that item
 package org.prog.selenium.pages;
 
 import org.openqa.selenium.*;
@@ -63,24 +61,35 @@ public class AlloUaPage {
         if (position >= allPhones.size()) {
             throw new IllegalArgumentException("Не виявлено стільки позицій телефонів");
         }
+        if (position <= allPhones.size()&&allPhones.size()>=0) {
 
-        WebElement phoneElement = allPhones.get(position);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(phoneElement).perform();
+            WebElement phoneElement = allPhones.get(position - 1);
+            Actions actions = new Actions(driver);
+            actions.moveToElement(phoneElement).perform();
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", phoneElement);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", phoneElement);
 
-        System.out.println("Назва телефону на позиції " + position + ": " + phoneElement.getText());
+            System.out.println("Назва телефону на позиції " + position + ": " + phoneElement.getText());
 
-        try {
-            WebElement skuElement = phoneElement.findElement(By.xpath(".//*[@id=\"__layout\"]/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/span[2]"));
-
-
-            System.out.println("Код товару: " + skuElement.getText());
-
-        } catch (Exception e) {
-            System.out.println("Код товару не знайдено для позиції " + position);
+            String codeValue = getCodePhone(phoneElement);
+            if (codeValue != null) {
+                System.out.println("Код товару: " + codeValue);
+            } else {
+                System.out.println("Код товару не знайдено для позиції " + position);
+            }
         }
     }
+    private String getCodePhone(WebElement phoneElement){
+        try {
+            WebElement codePlace = phoneElement.findElement(By.xpath("./ancestor::div[contains(@class, 'product-card')]"));
+            WebElement phoneCode = codePlace.findElement(By.xpath(".//span[@class='product-sku__value']"));
+            if (phoneCode.isDisplayed()) {
+                return phoneCode.getText();
+            }
+        }catch(NoSuchElementException | StaleElementReferenceException e){
+                return null;
+            }
+            return null;
+        }
 }
 
