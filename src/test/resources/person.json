@@ -1,76 +1,139 @@
 {
   "results": [
     {
-      "gender": "male",
+      "gender": "female",
       "name": {
-        "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
+        "title": "Mrs",
+        "first": "Mathea",
+        "last": "Austad"
       },
-      "nat": "NZ"
+      "location": {
+        "street": {
+          "number": 4681,
+          "name": "Fetsundgata"
+        },
+        "city": "Mogrenda",
+        "state": "Oppland",
+        "country": "Norway",
+        "postcode": "2674",
+        "coordinates": {
+          "latitude": "44.4524",
+          "longitude": "51.8242"
+        },
+        "timezone": {
+          "offset": "0:00",
+          "description": "Western Europe Time, London, Lisbon, Casablanca"
+        }
+      },
+      "nat": "NO"
     },
     {
       "gender": "male",
       "name": {
         "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
+        "first": "Jerry",
+        "last": "Boyd"
       },
-      "nat": "NZ"
+      "location": {
+        "street": {
+          "number": 5706,
+          "name": "Grafton Street"
+        },
+        "city": "Blessington",
+        "state": "Laois",
+        "country": "Ireland",
+        "postcode": 77438,
+        "coordinates": {
+          "latitude": "69.8996",
+          "longitude": "64.9805"
+        },
+        "timezone": {
+          "offset": "+1:00",
+          "description": "Brussels, Copenhagen, Madrid, Paris"
+        }
+      },
+      "nat": "IE"
     },
     {
       "gender": "male",
       "name": {
         "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
+        "first": "Jesús",
+        "last": "Castellanos"
       },
-      "nat": "NZ"
+      "location": {
+        "street": {
+          "number": 7474,
+          "name": "Peatonal Coahuila de Zaragoza"
+        },
+        "city": "Ticul",
+        "state": "Baja California",
+        "country": "Mexico",
+        "postcode": 29845,
+        "coordinates": {
+          "latitude": "26.4530",
+          "longitude": "-130.5672"
+        },
+        "timezone": {
+          "offset": "-6:00",
+          "description": "Central Time (US & Canada), Mexico City"
+        }
+      },
+      "nat": "MX"
     },
     {
       "gender": "male",
       "name": {
         "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
+        "first": "Daniel",
+        "last": "Jensen"
       },
-      "nat": "NZ"
+      "location": {
+        "street": {
+          "number": 5583,
+          "name": "Strandparken"
+        },
+        "city": "Oure",
+        "state": "Sjælland",
+        "country": "Denmark",
+        "postcode": 56054,
+        "coordinates": {
+          "latitude": "-50.3089",
+          "longitude": "20.4194"
+        },
+        "timezone": {
+          "offset": "+6:00",
+          "description": "Almaty, Dhaka, Colombo"
+        }
+      },
+      "nat": "DK"
     },
     {
       "gender": "male",
       "name": {
         "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
+        "first": "Clyde",
+        "last": "Larson"
       },
-      "nat": "NZ"
-    },
-    {
-      "gender": "male",
-      "name": {
-        "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
+      "location": {
+        "street": {
+          "number": 9598,
+          "name": "Grange Road"
+        },
+        "city": "Ballybofey-Stranorlar",
+        "state": "Donegal",
+        "country": "Ireland",
+        "postcode": 30205,
+        "coordinates": {
+          "latitude": "-58.6819",
+          "longitude": "-149.9870"
+        },
+        "timezone": {
+          "offset": "-3:30",
+          "description": "Newfoundland"
+        }
       },
-      "nat": "NZ"
-    },
-    {
-      "gender": "male",
-      "name": {
-        "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
-      },
-      "nat": "NZ"
-    },
-    {
-      "gender": "male",
-      "name": {
-        "title": "Mr",
-        "first": "Luca",
-        "last": "Hall"
-      },
-      "nat": "NZ"
+      "nat": "IE"
     }
   ]
 }
