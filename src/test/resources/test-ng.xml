@@ -2,7 +2,7 @@
 <suite name="Suite1" verbose="1">
     <test name="regression pack">
         <classes>
-            <class name="org.prog.testng.SQLTest"/>
+            <class name="org.prog.cucumber.steps.DataSteps"/>
         </classes>
     </test>
 </suite>
