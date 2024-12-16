@@ -1,19 +1,17 @@
 package org.prog.selenium.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class LocationDto {
-    private String street;
     private String city;
-    private String state;
-    private String country;
-    private String postcode;
-    private String coordinates;
-    private String timezone;
+
 
 }

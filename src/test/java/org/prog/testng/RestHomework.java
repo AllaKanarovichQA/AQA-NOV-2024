@@ -32,12 +32,13 @@ public class RestHomework {
 
 //        Assert.assertNotNull (response.jsonPath().get("results[0].location.city").toString(),"Назва міста не може бути порожньою!");
 
-//        ResultsDto dto = response.as(ResultsDto.class);
-        //       Assert.assertNotNull(dto.getResults().get(0).getLocation().getCity(), "Назва міста не може бути порожньою!");
+        ResultsDto dto = response.as(ResultsDto.class);
+        Assert.assertNotNull(dto.getResults().get(0).getLocation().getCity(), "Назва міста не може бути порожньою!");
+        String cityName = dto.getResults().get(0).getLocation().getCity();
+        System.out.println("Назва міста: " + cityName);
 
-
-        String timezone = validatableResponse.extract().jsonPath().getString("results[0].location.timezone.description");
-        System.out.println("Опис часового поясу: " + timezone);
+//        String timezone = validatableResponse.extract().jsonPath().getString("results[0].location.timezone.description");
+//        System.out.println("Опис часового поясу: " + timezone);
 
     }
 }
