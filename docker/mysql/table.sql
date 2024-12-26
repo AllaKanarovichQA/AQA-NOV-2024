@@ -14,3 +14,9 @@ delete from Persons where LastName = 'Doe';
 select * from Persons where LastName = 'Doe';
 
 select * from Persons;
+
+CREATE TABLE Phones (
+                        PhoneId INT UNIQUE AUTO_INCREMENT NOT NULL,
+                        PhoneName VARCHAR(255) NOT NULL,
+                        GoodsId VARCHAR(50) NOT NULL UNIQUE
+);

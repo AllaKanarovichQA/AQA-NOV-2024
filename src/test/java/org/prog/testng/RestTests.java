@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.Matchers;
 import org.prog.selenium.dto.PersonDto;
 import org.prog.selenium.dto.ResultsDto;
 import org.testng.Assert;
@@ -29,11 +30,10 @@ public class RestTests {
         validatableResponse.statusLine("HTTP/1.1 200 OK");
 
         //Validate body, potion 1
-//        validatableResponse.body("results[0].gender", Matchers.equalTo("male"));
+        validatableResponse.body("results[0].gender", Matchers.equalTo("male"));
 
 //        Assert.assertEquals(response.jsonPath().get("results[0].gender").toString(), "male",
 //                "user's gender mismatch! Expected male, but was female!");
-
         ResultsDto dto = response.as(ResultsDto.class);
         Assert.assertEquals(dto.getResults().get(0).getGender(), "female");
     }
