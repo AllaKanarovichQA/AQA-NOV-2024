@@ -19,13 +19,14 @@ public class WebDriverFactory {
     private final static String DRIVER_TYPE = System.getProperty("driverType", "");
 
     @SneakyThrows
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver() throws MalformedURLException {
         if ("local".equals(ENV)) {
             return getLocalDriver();
         } else {
             return getRemoteDriver();
         }
     }
+
 
     private static WebDriver getLocalDriver() {
         switch (DRIVER_TYPE) {

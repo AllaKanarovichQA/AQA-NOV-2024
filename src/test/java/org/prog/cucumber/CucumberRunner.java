@@ -6,8 +6,6 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.prog.cucumber.steps.AlloSteps;
-import org.prog.cucumber.steps.GoogleSteps;
-import org.prog.cucumber.steps.SQLSteps;
 import org.prog.selenium.pages.AlloUaPage;
 import org.prog.selenium.pages.GooglePage;
 import org.testng.annotations.AfterSuite;
@@ -37,17 +35,22 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
 
         driver = new ChromeDriver();
         AlloSteps.alloUaPage = new AlloUaPage(driver);
-        SQLSteps.connection = connection;
     }
 
     @SneakyThrows
     @AfterSuite
     public void tearDown() {
-        if (connection != null && !connection.isClosed()) {
-            connection.close();
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         if (driver != null) {
             driver.quit();
         }
     }
+
 }
